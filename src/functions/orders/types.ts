@@ -1,7 +1,7 @@
-enum OrderStatus {
+export enum OrderStatus {
   Pending = 'PENDING'
 }
 
-enum EventType {
+export enum EventType {
   Insert = 'INSERT'
 }

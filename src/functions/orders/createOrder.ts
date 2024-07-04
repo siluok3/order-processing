@@ -1,4 +1,6 @@
 import {DynamoDB} from 'aws-sdk'
+import AWS from 'aws-sdk'
+import {OrderStatus} from './types';
 
 type CreateOrderRequestParams = {
   TableName: string
@@ -17,9 +19,13 @@ type OrderParams = {
   createdAt: string
 }
 
+AWS.config.update({
+  region: 'eu-central-1',
+});
+
 const dynamoDB = new DynamoDB.DocumentClient()
 
-exports.handler = async (event: any): Promise<CreateOrderResponse> => {
+export const createOrderHandler = async (event: any): Promise<CreateOrderResponse> => {
   const data = JSON.parse(event.body)
 
   const params: CreateOrderRequestParams = {
@@ -39,6 +45,7 @@ exports.handler = async (event: any): Promise<CreateOrderResponse> => {
       body: JSON.stringify({ message: 'Order created successfully' })
     }
   } catch (error) {
+    console.error('Error creating order:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ message: 'Failed to create order', error })

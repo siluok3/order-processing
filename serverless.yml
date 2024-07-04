@@ -7,14 +7,14 @@ provider:
 
 functions:
   createOrder:
-    handler: src/functions/orders/createOrder.handler
+    handler: src/functions/orders/createOrder.createOrderHandler
     events:
       - http:
           path: orders
           method: post
 
   processOrder:
-    handler: src/functions/orders/processOrder.handler
+    handler: src/functions/orders/processOrder.processOrderHandler
     events:
       - stream:
           type: dynamodb
