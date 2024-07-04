@@ -1,0 +1,22 @@
+{
+  "name": "order-processing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kiriakos Papachristou",
+  "license": "ISC",
+  "description": "Order processing app build with NodeJS and AWS lambdas",
+  "dependencies": {
+    "@types/node": "^20.14.9",
+    "aws-sdk": "^2.1654.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "serverless": "^3.39.0",
+    "serverless-offline": "^13.6.0"
+  }
+}
